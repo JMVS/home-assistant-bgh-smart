@@ -12,12 +12,11 @@ try:
 except ImportError:
     from homeassistant.components.climate import ClimateDevice as ClimateEntity, PLATFORM_SCHEMA
 
-from homeassistant.components.climate.const import (
-    SUPPORT_TARGET_TEMPERATURE, SUPPORT_FAN_MODE, SUPPORT_SWING_MODE,
-    ATTR_HVAC_MODE,
-    HVACMode.HEAT, HVACMode.COOL, HVACMode.FAN_ONLY, HVACMode.DRY,
-    HVACMode.AUTO, HVACMode.OFF, SWING_ON, SWING_OFF, SUPPORT_PRESET_MODE, PRESET_NONE, PRESET_SLEEP, PRESET_BOOST,
-    PRESET_ECO, FAN_LOW, FAN_MEDIUM, FAN_HIGH, FAN_AUTO)
+from homeassistant.components.climate.const import ( 
+    ClimateEntityFeature.TARGET_TEMPERATURE, ClimateEntityFeature.FAN_MODE, ClimateEntityFeature.SWING_MODE, ATTR_HVAC_MODE,
+    HVACMode.HEAT, HVACMode.COOL, HVACMode.FAN_ONLY, HVACMode.DRY, HVACMode.AUTO, HVACMode.OFF, SWING_ON, SWING_OFF,
+    SUPPORT_PRESET_MODE, PRESET_NONE, PRESET_SLEEP, PRESET_BOOST, PRESET_ECO, 
+    FAN_LOW, FAN_MEDIUM, FAN_HIGH, FAN_AUTO)
 from homeassistant.const import ATTR_TEMPERATURE, CONF_USERNAME, CONF_PASSWORD, STATE_UNKNOWN, UnitOfTemperature.CELSIUS
 
 _LOGGER = logging.getLogger(__name__)
