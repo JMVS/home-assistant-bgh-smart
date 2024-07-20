@@ -18,7 +18,7 @@ from homeassistant.components.climate.const import (
     HVACMode.HEAT, HVACMode.COOL, HVACMode.FAN_ONLY, HVACMode.DRY,
     HVACMode.AUTO, HVACMode.OFF, SWING_ON, SWING_OFF, SUPPORT_PRESET_MODE, PRESET_NONE, PRESET_SLEEP, PRESET_BOOST,
     PRESET_ECO, FAN_LOW, FAN_MEDIUM, FAN_HIGH, FAN_AUTO)
-from homeassistant.const import ATTR_TEMPERATURE, CONF_USERNAME, CONF_PASSWORD, STATE_UNKNOWN, TEMP_CELSIUS
+from homeassistant.const import ATTR_TEMPERATURE, CONF_USERNAME, CONF_PASSWORD, STATE_UNKNOWN, UnitOfTemperature.CELSIUS
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -153,7 +153,7 @@ class SolidmationHVAC(ClimateEntity):
     @property
     def temperature_unit(self):
         """BGH Smart API uses celsius on the backend."""
-        return TEMP_CELSIUS
+        return UnitOfTemperature.CELSIUS
 
     @property
     def current_temperature(self):
