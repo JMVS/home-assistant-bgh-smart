@@ -117,7 +117,7 @@ class SolidmationHVAC(ClimateEntity):
         self._swing_modes = [SWING_ON, SWING_OFF]
         self._preset_modes = [PRESET_NONE, PRESET_ECO, PRESET_BOOST, PRESET_SLEEP]
 
-        self._support = (SUPPORT_TARGET_TEMPERATURE | SUPPORT_FAN_MODE | SUPPORT_SWING_MODE | SUPPORT_PRESET_MODE)
+        self._support = (ClimateEntityFeature.TARGET_TEMPERATURE | ClimateEntityFeature.FAN_MODE | ClimateEntityFeature.SWING_MODE | ClimateEntityFeature.PRESET_MODE)
 
     def _parse_data(self):
         """Parse the data in self._device"""
