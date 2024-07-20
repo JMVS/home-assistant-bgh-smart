@@ -15,7 +15,7 @@ Copy the `bgh_smart` folder to `<config_dir>/custom_components/bgh_smart/`.
 2. Go to Integrations
 3. Click in the menu with 3 dots on the top right of the screen and select
    "Custom repositories"
-4. Add `arpena/home-assistant-bgh-smart` as a custom repository and select the
+4. Add `JMVS/home-assistant-bgh-smart` as a custom repository and select the
    `Integration` category
 5. Search for "BGH Smart"
 6. Install the integration
