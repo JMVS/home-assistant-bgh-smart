@@ -15,8 +15,8 @@ except ImportError:
 from homeassistant.components.climate.const import (
     SUPPORT_TARGET_TEMPERATURE, SUPPORT_FAN_MODE, SUPPORT_SWING_MODE,
     ATTR_HVAC_MODE,
-    HVAC_MODE_HEAT, HVAC_MODE_COOL, HVAC_MODE_FAN_ONLY, HVAC_MODE_DRY,
-    HVAC_MODE_AUTO, HVAC_MODE_OFF, SWING_ON, SWING_OFF, SUPPORT_PRESET_MODE, PRESET_NONE, PRESET_SLEEP, PRESET_BOOST,
+    HVACMode.HEAT, HVACMode.COOL, HVACMode.FAN_ONLY, HVACMode.DRY,
+    HVACMode.AUTO, HVACMode.OFF, SWING_ON, SWING_OFF, SUPPORT_PRESET_MODE, PRESET_NONE, PRESET_SLEEP, PRESET_BOOST,
     PRESET_ECO, FAN_LOW, FAN_MEDIUM, FAN_HIGH, FAN_AUTO)
 from homeassistant.const import ATTR_TEMPERATURE, CONF_USERNAME, CONF_PASSWORD, STATE_UNKNOWN, TEMP_CELSIUS
 
@@ -29,12 +29,12 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 })
 
 MAP_MODE_ID = {
-    0: HVAC_MODE_OFF,
-    1: HVAC_MODE_COOL,
-    2: HVAC_MODE_HEAT,
-    3: HVAC_MODE_DRY,
-    4: HVAC_MODE_FAN_ONLY,
-    254: HVAC_MODE_AUTO
+    0: HVACMode.OFF,
+    1: HVACMode.COOL,
+    2: HVACMode.HEAT,
+    3: HVACMode.DRY,
+    4: HVACMode.FAN_ONLY,
+    254: HVACMode.AUTO
 }
 
 MAP_FAN_MODE_ID = {
@@ -105,15 +105,15 @@ class SolidmationHVAC(ClimateEntity):
         self._max_temp = None
         self._current_temperature = None
         self._target_temperature = None
-        self._mode = HVAC_MODE_OFF
+        self._mode = HVACMode.OFF
         self._fan_speed = FAN_AUTO
         self._swing_mode = SWING_OFF
         self._preset_mode = PRESET_NONE
 
         self._parse_data()
 
-        self._hvac_modes = [HVAC_MODE_AUTO, HVAC_MODE_COOL, HVAC_MODE_HEAT,
-                            HVAC_MODE_DRY, HVAC_MODE_FAN_ONLY, HVAC_MODE_OFF]
+        self._hvac_modes = [HVACMode.AUTO, HVACMode.COOL, HVACMode.HEAT,
+                            HVACMode.DRY, HVACMode.FAN_ONLY, HVACMode.OFF]
         self._fan_modes = [FAN_AUTO, FAN_LOW, FAN_MEDIUM, FAN_HIGH]
         self._swing_modes = [SWING_ON, SWING_OFF]
         self._preset_modes = [PRESET_NONE, PRESET_ECO, PRESET_BOOST, PRESET_SLEEP]
